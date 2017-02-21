@@ -1,0 +1,32 @@
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+<form action="" method="post" name="user">
+    {{ form.hidden_tag() }}
+<h1>Tweets loaded for {{ username }}</h1>
+    <table>
+    <tr>
+        <td>Enter the search term</td>
+        <td>{{ form.search(size=24) }}</td>
+        <td></td></tr>
+{#    <tr>#}
+{#        <td>Enter the Query</td>#}
+{#        <td>{{ form.search(size=24) }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+        <td></td>
+        <td><input type="submit" value="Search for tweets"></td>
+    </tr>
+</table>
+</form>
+
+{% for addr in addrs %}
+{{ addr }}
+<blockquote class="twitter-tweet" data-conversation="none"><a href={{ addr }}></a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><br>
+{% endfor %}
