@@ -3,6 +3,7 @@ from wtforms import StringField
 from wtforms.validators import DataRequired
 
 class UserField(FlaskForm):
-    nickname = StringField('nickname', validators=[DataRequired()])
-    search = StringField('search')
-    # search = StringField('search', validators=[DataRequired()])
+    username = StringField('username', validators=[DataRequired()])
+
+class SearchField(FlaskForm):
+    search = StringField('search', validators=[DataRequired()])

@@ -26,11 +26,13 @@ from datetime import datetime
 # u1 = User(username='Alice')
 # db.session.add(u1)
 # db.session.commit()
-# user = User.query.filter_by(username='NotGbo').first()
+user = User.query.filter_by(username='vulgarfingers').first()
 #print(user.username)
 # print(user.tweets.order_by(Tweet.timestamp.desc()).first().tweetid)
 # posts = user.tweets.order_by(Tweet.timestamp.desc()).first()
 # print(posts.tweetid)
-# search = Tweet.query.filter_by(author=user).filter(Tweet.body.contains("vanilla")).all()
-# for each in search:
-#     print(each.body, each.tweetid)
+search = Tweet.query.filter_by(author=user).filter(Tweet.body.contains("vulgarian")).all()
+for each in search:
+    print(each.body, each.author.username)
+urls = [('https://twitter.com/{}/status/{}'.format(tweet.author.username, tweet.tweetid)) for tweet in search]
+print(urls)
