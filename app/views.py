@@ -39,7 +39,7 @@ def user(username):
         username = username
         search = form.search.data
         u = User.query.filter_by(username=username).first()
-        search = Tweet.query.filter_by(author=u).filter(Tweet.body.contains(search)).all()
+        search = Tweet.query.filter_by(author=u).filter(Tweet.body.contains(search)).order_by(Tweet.timestamp.desc()).all()
         addrs = [('https://twitter.com/{}/status/{}'.format(tweet.author.username, tweet.tweetid)) for tweet in search]
     return render_template('user.html',
                            title='User',

@@ -29,7 +29,7 @@ class User(db.Model):
         for tweet in all_tweets:
             post = Tweet(body=tweet.text, timestamp=tweet.created_at, tweetid=tweet.id_str, author=user_id)
             db.session.add(post)
-            db.session.commit()
+        db.session.commit()
 
         # ids = [tweet.id for tweet in all_tweets if search in tweet.text]
         # addresses = []
